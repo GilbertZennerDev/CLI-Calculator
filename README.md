@@ -80,5 +80,5 @@ python pycalc.py
 
 👨‍💻 Author
 
-Made with 💙 and a curious mind by [Your Name]
+Made with 💙 and a curious mind by [GilbertZennerDev]
 “Because sometimes, you just want to do math… the hacker way.” 😎
