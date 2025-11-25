@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cli_calc.c                                         :+:      :+:    :+:   */
+/*   cli_calc.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 12:27:17 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/25 12:31:42 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/25 12:48:10 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "clicalc.hpp"
 
-double	myexp(double nb1, double nb2)
+double	CliCalc::myexp(double nb1, double nb2)
 {
 	double	result;
 
@@ -26,7 +24,7 @@ double	myexp(double nb1, double nb2)
 	return (result);
 }
 
-double	docalc(char **av)
+double	CliCalc::docalc(char **av)
 {
 	double	nb1;
 	double	nb2;
@@ -44,11 +42,4 @@ double	docalc(char **av)
 	if (strcmp(av[2], "/") == 0)
 		return (nb1 / nb2);
 	return (-999.999);
-}
-
-int	main(int ac, char **av)
-{
-	if (ac == 4)
-		printf("%f\n", docalc(av));
-	return (0);
 }
