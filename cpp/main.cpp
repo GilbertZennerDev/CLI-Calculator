@@ -1,21 +1,39 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 12:34:09 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/25 12:42:37 by gzenner          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <math.h>
+#include <vector>
+#include <sstream>
+#include <iostream>
+using namespace std;
 
-#include "clicalc.hpp"
-
-int	main(int ac, char **av)
+int main()
 {
-	CliCalc calc = CliCalc();
-	if (ac == 4)
-		printf("%f\n", calc.docalc(av));
+	string t;
+	string op;
+	double nb1;
+	double nb2;
+	stringstream ss;
+	vector<string> cmds;
+
+	while (1){
+		cout << "Enter command:\n";
+		getline(cin, t);
+		if (t == string("exit")) return (1);
+		ss.clear();
+		ss.str(t);
+		cmds.clear();
+		while (getline(ss, t, ' '))
+			cmds.push_back(t);
+		try{
+			nb1 = stod(cmds[0]);
+			nb2 = stod(cmds[2]);
+			op = cmds[1];
+			if (op == string("+")) {cout << nb1 + nb2 << "\n";}
+			else if (op == string("-")) {cout << nb1 - nb2 << "\n";}
+			else if (op == string("*")) {cout << nb1 * nb2 << "\n";}
+			else if (op == string("/")) {cout << nb1 / nb2 << "\n";}
+			else if (op == string("**")) {cout << pow(nb1, nb2) << "\n";}
+		}
+		catch (const exception &e)
+		{cout << "Error: Bad Input.\n";}
+	}
 	return (0);
 }
